@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Company</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+                 <div class="wrapper-inner">
+                 <div class="offer animate-on-scroll">
+                    <img class="logo" src="img/logo.png" alt="logo">
+                    <h1 class="offer_title">С помощью нас вы сможете создать то, о чем</h1>
+                    <span class="offer_span">желаете!</span>
+                    <p class="offer_text">Наши способности + опыт позволят Вам достичь огромного успеха. Мы верим в вас! И знаем это на все 100%. Вас не остановить!</p>
+                    <a href="#" class="btn">Узнать больше...</a>
+            </div>
+            <img class="img animate-on-scroll" src="img/header-img.png" alt="pic>">
+        </div>
+    </div>
+ </header>
+
+     <article class="about animate-on-scroll">
+        <h1 class="question">Что Вам необходимо?</h1>
+        <div class="holder">
+            <div class="pencil">
+                <img class="option1" src="img/f3.png" alt="option1">
+                <h3 class="block1">Первый блок</h3>
+                <p class="description1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="ballon">
+                <img class="option2" src="img/f4.png" alt="option2">
+                <h3 class="block2">Второй блок</h3>
+                <p class="description2">Lorem ipsum dolor sit amet consectetur adipisicing elit?</p>
+            </div>
+
+            <div class="flag">
+                <img class="option3" src="img/f5.png" alt="option3">
+                <h3 class="block3">Третий блок</h3>
+                <p class="description3">Lorem ipsum dolor sit amet consectetur adipisicing elit!</p>
+            </div>
+        </div>
+    </article>
+
+    <section class="ordering">
+        <div class="order-wrapper">
+            <div class="order-container">
+                <h2 class="order-title">Форма заказа продукта или услуги</h2>
+                <form id="orderForm">
+                    <label><input type="text" id="firstName" placeholder="Введите имя"></label>
+                    <label><input type="text" id="lastName" placeholder="Введите фамилию"></label>
+                    <label><input type="tel" id="phoneNumber" placeholder="Введите номер телефона"></label>
+                    <label>
+                        <select id="service">
+                            <option value="">Выберите услугу</option>
+                            <option value="Маникюр">Маникюр</option>
+                            <option value="Педикюр">Педикюр</option>
+                            <option value="Наращивание ресниц">Наращивание ресниц</option>
+                            <option value="Коррекция бровей">Коррекция бровей</option>
+                            <option value="Окрашивание волос">Окрашивание волос</option>
+                            <option value="Стрижка">Стрижка</option>
+                            <option value="Массаж">Массаж</option>
+                        </select>
+                    </label>
+                    <label><input type="date" id="date" placeholder="Выберите дату"></label>
+                    <label><input type="time" id="time" placeholder="Выберите время"></label>
+                    <button type="button" id="submitOrder">Отправить заказ</button>
+                </form>
+                <div id="orderSummary" class="summary-container"></div>
+            </div>
+        </div>
+    </section> 
+
+    <section class="callback">
+        <div class="callback-wrapper">
+            <div class="form-container">
+                <h2 class="order-title">Форма обратного звонка</h2>
+                <form id="callbackForm">
+                    <label><input type="text" id="callbackName" placeholder="Введите имя"></label>
+                    <label><input type="email" id="callbackEmail" placeholder="Введите email"></label>
+                    <label><input type="text" id="callbackTopic" placeholder="Введите тему"></label>
+                    <form action="" target="_blank">
+                        <button>Узнать больше...</button>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© Все на этом сайте защищено</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+
+        const observerOptions = {
+            root: null, 
+            threshold: 0.1 
+        };
+        const animateOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__backInDown');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        };
+        const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+        elements.forEach(element => observer.observe(element));
+    });
+</script>
+
+</html>
